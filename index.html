@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="App">
+        <header class="header container">
+            <div class="header__content">
+                <p class="header__subtitle"><a class="header__link" href="#">Главная</a></p>
+                <p class="header__subtitle">/</p>
+                <p class="header__subtitle"><a class="header__link" href="#">Игра"21"</a></p>
+            </div>
+            <h1 class="header__title">карточная игра "21"</h1>
+        </header>
+        <main class="main">
+            <div class="logo-bar container-main">
+                <img class="logo" src='./images/logo.png'>
+                <h2 class="rules"><a class="rules__link" href="#">Как играть?</a></h2>
+                <!-- <img src='./images/needadollar.png' class="baks"/> -->
+                <div class="money">
+                    <img src="./images/USD.png" class="usd">
+                    <div class="money-rate"></div>
+                </div>
+            </div>
+            <div class="main__wrapper container-main">
+                <div class="data-play">
+                    <div class="data-play__general">
+                        <p class="win">Победы</p>
+                        <div class="score score-red victoties"></div>
+                    </div>
+                    <div class="data-play__general">
+                        <p class="win">Проигрыши</p>
+                        <div class="score score-black losing"></div>
+                    </div>
+                    <div class="data-play__general">
+                        <p class="win">Ничьи</p>
+                        <div class="score score-blue draw"></div>
+                    </div>
+                </div>
+                <div class="main__container">
+                    <!-- Игрок -->
+                    <div class="main__container_one">
+                        <div class="field-one">
+                            <h2 class="field-one__dialer">ИГРОК</h2>
+                            <img class="card player__card-1" src="">
+                            <img class="card player__card-2" src="">
+                            <img class="card player__card-3" src="">
+                            <img class="card player__card-4" src="">
+                            <img class="card player__card-5" src="">
+                        </div>
+                        <div class="main__container_number user"></div>
+                    </div>
+                    <!-- Дилер -->
+                    <div class="main__container_two">
+                        <div class="field-two">
+                            <h2 class="field-one__dialer">ДИЛЛЕР</h2>
+                            <img class="card dealer__card-1" src="">
+                            <img class="card dealer__card-2" src="">
+                            <img class="card dealer__card-3" src="">
+                            <img class="card dealer__card-4" src="">
+                        </div>
+                        <div class="main__container_number computer"></div>
+                    </div>
+                </div>
+                <div class="wrapper-card">
+                    <div class="main__kol"></div>
+                    <div class="main__sewitch switch-one green hit">ЕЩЕ</div>
+                    <div class="main__sewitch red stand">СТОП</div>
+                </div>
+                
+            </div> 
+            <div class="rate-container container-rate">
+                <span class="span-rate"></span>
+                <input class="input-rate" type="text">
+                <div class="attempt">500</div>
+                <div class="attempt">1000</div>
+                <div class="attempt">1500</div>
+                <div class="attempt">2000</div>
+                <div class="attempt">2500</div>
+                <div class="attempt">3000</div>
+                <button class="button-del-rate"></button>
+                <button class="button-rate">Сделать ставку</button>
+            </div>
+        </main>
+        <!-- popup правил игры -->
+        <div class="popup">
+            <div class="popup__container">
+                <h1 class="title-one">Игра "21"</h1>
+                <h2 class="title-two">Постарайтесь угадать, когда сумма карт будет равна 21!</h2>
+                <h2 class="title-three">Как играть?</h2>
+                <ul class="popup__list">
+                    <li>1. Купите баллы для активации игры(1000 баллов= 150р)</li>
+                    <li>2. Сделайте ставку. Размер начальной и максимальной ставки определяется до <br />начала игры.</li>
+                    <li>3. В начале игры сдаются две карты. Нажимая кнопку "Еще" берите по одной <br />карте до тех пор, пока не приблизитесь к 21 очку (дополнительно можно взять <br />не более трех карт). Считаете, что пора остановиться? <br />Тогда кликайте по кнопке "Хватит".</li>
+                    <li>4. Наберите 21 очко</li>
+                    <li>5. Вы побеждаете, если набрали 21 очко(или меньше, но количество очков <br />больше, чем у дилера)</li>
+                    <li>6. Вы побеждаете, если набрали максимальное количество очков.</li>
+                </ul>
+                <p class="subtitle__one">Если у вас больше 21 очка, то вы перебрали и проигрываете</p>
+                <p class="subtitle__one">Исключением является случай, когда у вас на руках два туза (золотое очко), <br />которое считается больше 21.</p>
+                <p class="subtitle__two">Старшинство карт: <span>6, 7, 8, 9, 10, J, Q, K, A</span></p>
+                <p class="subtitle__two subtitle__three">Стоимость карт в соответствии со старшинством: <span>6, 7, 8, 9, 10, 2, 3, 4, 11 (1,1/11)</span></p>
+                <h2 class="title-four">Расслабьтесь и отвлекитесь от дел, <br />сыграв в карточную игру "21"!</h2>
+                <div class="close-button"></div>
+            </div>
+        </div>
+        <!-- popup победы -->
+        <div class="popup__message">
+           <h1 class="popup__rate"></h1>
+           <img class="popup__winner_close" src="images/Close-popup.png">
+        </div>
+        <div class="popup__winner">
+            <div class="img-winner">
+                <h2 class="title-winner">Вы выиграли <span class="winner-span"></span>&nbsp;USD</h2>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
