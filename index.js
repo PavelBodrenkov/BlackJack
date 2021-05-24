@@ -206,7 +206,7 @@ function startGame () {
                 moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
                 titleStatus.style.top = "50%"
                 victoties.textContent++
-            }, 1500)
+            }, 2500)
     }
     if(dealerRoundScore === 21 && playerRoundScore <21) {
         hit.classList.add('disabled');
@@ -217,7 +217,7 @@ function startGame () {
                 titleStatus.style.top = "55%"
                 winnerSpan.textContent = ""
                 losing.textContent++
-            }, 1500)
+            }, 2500)
     }
 
     setTimeout(() => fieldUser.textContent = playerRoundScore, 1300)
