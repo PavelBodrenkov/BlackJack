@@ -206,25 +206,46 @@ function startGame () {
                 moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
                 titleStatus.style.top = "50%"
                 victoties.textContent++
-            }, 2500)
+            }, 3500)
     }
     if(dealerRoundScore === 21 && playerRoundScore <21) {
         hit.classList.add('disabled');
         stand.classList.add('disabled');
-            setTimeout(() => {
-                popupWinner.classList.add('popup__active');
-                titleStatus.textContent = "Вы проиграли!"
-                titleStatus.style.top = "55%"
-                winnerSpan.textContent = ""
-                losing.textContent++
-            }, 2500)
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Вы проиграли!"
+            titleStatus.style.top = "55%"
+            winnerSpan.textContent = ""
+            losing.textContent++
+        }, 4500)
     }
 
     setTimeout(() => fieldUser.textContent = playerRoundScore, 1300)
     setTimeout(() => fieldDealer.textContent = dealerRoundScore, 2500)
-    if (playerRoundScore > 21) {
+    
+
+    if(playerCard[0].points == 11 && playerCard[1].points == 11) {
+        popupWinner.classList.add('popup__active');
+        titleStatus.textContent = "Победа!"
+        winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
+        moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
+        titleStatus.style.top = "50%"
+        victoties.textContent++
+    } else if(dealerCard[0].points == 11 && dealerCard[1].points == 11) {
+        popupWinner.classList.add('popup__active');
+        titleStatus.textContent = "Вы проиграли!"
+        titleStatus.style.top = "55%"
+        winnerSpan.textContent = ""
+        losing.textContent++
+    } else if (playerRoundScore > 21) {
         showCompareCard();
     }
+    
+
+
+
+
+
     buttonRate.removeEventListener('click', startGame)  
 }
 

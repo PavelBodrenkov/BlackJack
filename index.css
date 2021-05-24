@@ -734,4 +734,5 @@ cursor: pointer;
     font-size: 48px;
     font-weight: 400;
     z-index: 10;
+    text-align: center;
 }
