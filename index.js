@@ -136,11 +136,19 @@ function newGame () {
         } 
     })
 
-    // if (moneyRate.textContent == 0) {
-    //     popupWinner.classList.add('popup__active');
-    //     titleStatus.textContent = "Пора пополнить бонусный счет!"
-    //     titleStatus.style.top = "55%"
-    // }
+    if(+victoties.textContent + +losing.textContent + +draw.textContent == 6) {
+        popupWinner.classList.add('popup__active');
+         titleStatus.textContent = "Зарегистрируйтесь или перезагрузите страницу!"
+         titleStatus.style.top = "55%";
+         titleStatus.style.left = "55%";
+    }
+    console.log(+victoties.textContent + +losing.textContent + +draw.textContent)
+
+    if (moneyRate.textContent == 0) {
+        popupWinner.classList.add('popup__active');
+        titleStatus.textContent = "Пора пополнить бонусный счет!"
+        titleStatus.style.top = "55%"
+    }
 
     playerRoundScore = 0;
     dealerRoundScore = 0;
