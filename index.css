@@ -5,6 +5,8 @@
     position: relative;
 }
 
+
+
 .header {
     color:white;
     display: grid;
@@ -339,17 +341,19 @@ font-family: Arial, Helvetica, sans-serif;
 .input-rate {
     height: 40px;
     border: 1px solid rgb(121, 121, 121);
-    font-size: 20px;
+    font-size: 25px;
     background-color:rgb(200, 200, 200, 0.6);
     box-shadow: 0 0 2px black inset;
     color: white;
     padding-left: 10px;
+    width: 200px;
+    margin-right: 50px;
+    display: flex;
+    
+    align-items: center;
 }
 
-.disabled {
-    pointer-events: none;
-    background: rgb(168, 167, 167)
-}
+
 
 .span-rate {
     color: white;
@@ -488,6 +492,16 @@ font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
 }
 
+.color {
+    background: -webkit-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: -moz-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: -o-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+}
+
+.color-red {
+    background: red;
+}
 
 
 @keyframes playerCard1 {
@@ -587,6 +601,16 @@ font-family: Arial, Helvetica, sans-serif;
         left: 12rem;
     }
 }
+@keyframes dealerCard5 {
+    0% {
+        top: 0rem;
+        left: 34rem;
+    }
+    100% {
+        top: 12.3rem;
+        left: 16rem;
+    }
+}
 
 
  .card {
@@ -608,6 +632,7 @@ font-family: Arial, Helvetica, sans-serif;
 .dealer__card-2 { animation: dealerCard2 .6s .1s ease-out forwards;z-index: 1} 
 .dealer__card-3 { animation: dealerCard3 .6s .1s ease-out forwards; z-index: 1;}
 .dealer__card-4 { animation: dealerCard4 .6s .1s ease-out forwards; z-index: 1;}
+.dealer__card-5 { animation: dealerCard5 .6s .1s ease-out forwards; z-index: 1;}
 
 .popup__winner {
     width: 100%;
@@ -627,19 +652,22 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .img-winner {
-    background: url('./images/popup-winner.png') center no-repeat;
+    background: url('./images/popup.png') center no-repeat;
     width: 100%;
     height: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .title-winner {
     color: white;
     margin: 0;
-    position: relative;
-    top: 70px;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 45px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -677,5 +705,36 @@ font-family: Arial, Helvetica, sans-serif;
     visibility: visible;
     opacity: 1;
     transition: 0.25s linear;
+    z-index: 10;
+}
+
+
+.disabled {
+    pointer-events: none;
+    background: rgb(168, 167, 167)
+}
+
+
+.color-red {
+    background: red;
+}
+.color {
+    background: -webkit-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: -moz-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: -o-linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+    background: linear-gradient(rgb(43, 159, 241) 0%, rgb(27, 106, 164) 100%);
+}
+
+.title__status {
+    color: #0fb7cf;
+    text-transform: uppercase;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
     z-index: 10;
 }

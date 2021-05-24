@@ -1,5 +1,4 @@
 // --------------------------------------------------------------------//
-
 const fieldUser = document.querySelector('.user');
 const fieldDealer = document.querySelector('.computer');
 const buttonStart = document.querySelector('.button-start');
@@ -23,6 +22,8 @@ const popupWinner = document.querySelector('.popup__winner');
 const moneyRate = document.querySelector('.money-rate');
 const attempt = document.querySelectorAll('.attempt');
 const popupAll = document.querySelector('.popup__all');
+const rateContainer = document.querySelector('.rate-container');
+const titleStatus = document.querySelector('.title__status');
 
 let cardsAll = [
     {img: './images/cards2/2(1).png', points: 2},
@@ -65,18 +66,18 @@ let cardsAll = [
     {img: './images/cards2/Ace(2).png', points: 11},
     {img: './images/cards2/Ace(3).png', points: 11},
     {img: './images/cards2/Ace(4).png', points: 11},
-    {img: './images/cards2/Jack(1).png', points: 10},
-    {img: './images/cards2/Jack(2).png', points: 10},
-    {img: './images/cards2/Jack(3).png', points: 10},
-    {img: './images/cards2/Jack(4).png', points: 10},
-    {img: './images/cards2/Queen(1).png', points: 10},
-    {img: './images/cards2/Queen(2).png', points: 10},
-    {img: './images/cards2/Queen(3).png', points: 10},
-    {img: './images/cards2/Queen(4).png', points: 10},
-    {img: './images/cards2/King(1).png', points: 10},
-    {img: './images/cards2/King(2).png', points: 10},
-    {img: './images/cards2/King(3).png', points: 10},
-    {img: './images/cards2/King(4).png', points: 10}
+    {img: './images/cards2/Jack(1).png', points: 2},
+    {img: './images/cards2/Jack(2).png', points: 2},
+    {img: './images/cards2/Jack(3).png', points: 2},
+    {img: './images/cards2/Jack(4).png', points: 2},
+    {img: './images/cards2/Queen(1).png', points: 3},
+    {img: './images/cards2/Queen(2).png', points: 3},
+    {img: './images/cards2/Queen(3).png', points: 3},
+    {img: './images/cards2/Queen(4).png', points: 3},
+    {img: './images/cards2/King(1).png', points: 4},
+    {img: './images/cards2/King(2).png', points: 4},
+    {img: './images/cards2/King(3).png', points: 4},
+    {img: './images/cards2/King(4).png', points: 4}
 ]
     
 let playerCard = [];
@@ -103,31 +104,53 @@ popupWinnerClose.addEventListener('click', () => {
     newGame()
 })
 
+newGame()
+
+function trigger () {
+    if(inputRate.textContent !== "") {
+        buttonRate.classList.remove('disabled')
+    }
+    if(inputRate.textContent === "") {
+        buttonRate.classList.add('disabled');
+    }
+    attempt.forEach((button) => {
+        button.classList.remove('color')
+    })
+}
+
 function newGame () {
+    inputRate.textContent = ""
+    if(inputRate.textContent !== "") {
+        buttonRate.classList.remove('disabled')
+    }
+    if(inputRate.textContent === "") {
+        buttonRate.classList.add('disabled');
+    }
+    attempt.forEach((button) => {
+        button.classList.remove('disabled')
+        button.classList.add('color')
+        button.classList.remove('color-red')
+        if(+moneyRate.textContent < +button.textContent.split('').slice(0,4).join('')) {
+            button.classList.add('disabled');
+            button.classList.remove('color');
+        } 
+    })
+
+    // if (moneyRate.textContent == 0) {
+    //     popupWinner.classList.add('popup__active');
+    //     titleStatus.textContent = "Пора пополнить бонусный счет!"
+    //     titleStatus.style.top = "55%"
+    // }
+
     playerRoundScore = 0;
     dealerRoundScore = 0;
     fieldUser.textContent = "0";
     fieldDealer.textContent = "0";
-    inputRate.value = ""
-    buttonRate.classList.remove('disabled')
     hit.classList.add('disabled');
     stand.classList.add('disabled');
     buttonRate.addEventListener('click', startGame)
-        // if(inputRate.value !== "") {
-        //     startGame()
-        //     spanRate.textContent = ""
-        // } else {
-        //     spanRate.textContent = ""
-        //     spanRate.textContent = "Введите сумму"
-        // }
-    // });
-    buttonDelRate.addEventListener('click', ()=> {
-        inputRate.value = "";
-        spanRate.textContent = "";
-    });
     hit.addEventListener('click', addCard);
     stand.addEventListener('click', showCompareCard);
-    
     document.querySelector('.player__card-1').style.display = "none";
     document.querySelector('.player__card-2').style.display = "none";
     document.querySelector('.player__card-3').style.display = "none";
@@ -137,9 +160,8 @@ function newGame () {
     document.querySelector('.dealer__card-2').style.display = "none";
     document.querySelector('.dealer__card-3').style.display = "none";
     document.querySelector('.dealer__card-4').style.display = "none";
+    document.querySelector('.dealer__card-5').style.display = "none";
 }
-
-newGame()
 
 function startGame () {
     buttonRate.classList.add('disabled');
@@ -149,14 +171,12 @@ function startGame () {
     dealerRoundScore = 0;
     hit.classList.remove('disabled');
     stand.classList.remove('disabled');
-
     randomCard(cardsAll, playerCard, 2);
-    randomCard(cardsAll, dealerCard, 1);
-
+    randomCard(cardsAll, dealerCard, 2);
     cardsAll.splice(cardsAll.indexOf(playerCard[0]), 1);
     cardsAll.splice(cardsAll.indexOf(playerCard[1]), 1);
     cardsAll.splice(cardsAll.indexOf(dealerCard[0]), 1);
-
+    cardsAll.splice(cardsAll.indexOf(dealerCard[1]), 1);
     document.querySelector('.player__card-1').style.display = "inline-block";
     setTimeout(() => document.querySelector('.player__card-2').style.display = "inline-block", 500);
     setTimeout(() => document.querySelector('.dealer__card-1').style.display = "inline-block", 1200);
@@ -164,24 +184,49 @@ function startGame () {
     document.querySelector('.player__card-1').src = playerCard[0].img;
     document.querySelector('.player__card-2').src = playerCard[1].img;
     document.querySelector('.dealer__card-1').src = dealerCard[0].img;
-    document.querySelector('.dealer__card-2').src = './images/cards/back-card.png';
-
+    document.querySelector('.dealer__card-2').src = dealerCard[1].img;;
     playerRoundScore = playerCard[0].points + playerCard[1].points;
-    dealerRoundScore = dealerCard[0].points;
+    dealerRoundScore = dealerCard[0].points + dealerCard[1].points;
+
+    if(playerRoundScore === 21 && dealerRoundScore <21) {
+        hit.classList.add('disabled');
+        stand.classList.add('disabled');
+            setTimeout(() => {
+                popupWinner.classList.add('popup__active');
+                titleStatus.textContent = "Победа!"
+                winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
+                moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
+                titleStatus.style.top = "50%"
+                victoties.textContent++
+            }, 1500)
+    }
+    if(dealerRoundScore === 21 && playerRoundScore <21) {
+        hit.classList.add('disabled');
+        stand.classList.add('disabled');
+            setTimeout(() => {
+                popupWinner.classList.add('popup__active');
+                titleStatus.textContent = "Вы проиграли!"
+                titleStatus.style.top = "55%"
+                winnerSpan.textContent = ""
+                losing.textContent++
+            }, 1500)
+    }
 
     setTimeout(() => fieldUser.textContent = playerRoundScore, 1300)
     setTimeout(() => fieldDealer.textContent = dealerRoundScore, 2500)
     if (playerRoundScore > 21) {
         showCompareCard();
     }
-    buttonRate.removeEventListener('click', startGame)
-        
+    buttonRate.removeEventListener('click', startGame)  
 }
 
 function addCard () {
     if(playerCard.length === 2){
         randomCard(cardsAll, playerCard, 1);
         cardsAll.splice(cardsAll.indexOf(playerCard[2]), 1);
+        if(playerCard[2].points === 11) {
+            playerCard[2].points = 1
+        }
         document.querySelector('.player__card-3').src = playerCard[2].img;
         document.querySelector('.player__card-3').style.display = "inline-block";
         playerRoundScore += playerCard[2].points;
@@ -189,6 +234,9 @@ function addCard () {
     } else if (playerCard.length === 3) {
         randomCard(cardsAll, playerCard, 1);
         cardsAll.splice(cardsAll.indexOf(playerCard[3]), 1);
+        if(playerCard[3].points === 11) {
+            playerCard[3].points = 1
+        }
         document.querySelector('.player__card-4').src = playerCard[3].img;
         document.querySelector('.player__card-4').style.display = "inline-block";
         playerRoundScore += playerCard[3].points;
@@ -196,6 +244,9 @@ function addCard () {
     }else if (playerCard.length === 4) {
         randomCard(cardsAll, playerCard, 1);
         cardsAll.splice(cardsAll.indexOf(playerCard[4]), 1);
+        if(playerCard[4].points === 11) {
+            playerCard[4].points = 1
+        }
         document.querySelector('.player__card-5').src = playerCard[4].img;
         document.querySelector('.player__card-5').style.display = "inline-block";
         playerRoundScore += playerCard[4].points;
@@ -204,72 +255,90 @@ function addCard () {
     if (playerRoundScore > 21) {
         showCompareCard();
     }
+    if(playerCard.length === 5) {
+        hit.classList.add('disabled');
+    }
 }
 
 function showCompareCard () {
-    randomCard(cardsAll, dealerCard, 1);
-    cardsAll.splice(cardsAll.indexOf(dealerCard[1]), 1);
-    document.querySelector('.dealer__card-2').src = dealerCard[1].img;
-    dealerRoundScore += dealerCard[1].points;
-    fieldDealer.textContent = dealerRoundScore
-        if(dealerRoundScore <=16 && playerRoundScore <=21) {
+        if(dealerRoundScore <17 && playerRoundScore <=21) {
             randomCard(cardsAll, dealerCard, 1);
             cardsAll.splice(cardsAll.indexOf(dealerCard[2]), 1);
+            if(dealerCard[2].points === 11) {
+                dealerCard[2].points = 1
+            }
             document.querySelector('.dealer__card-3').src = dealerCard[2].img;
             document.querySelector('.dealer__card-3').style.display = "inline-block";
             dealerRoundScore += dealerCard[2].points;
             fieldDealer.textContent = dealerRoundScore;
         }
-        if(dealerRoundScore <=16 && playerRoundScore <=21) {
+        if(dealerRoundScore <17 && playerRoundScore <=21) {
             // setTimeout(() => {
                 randomCard(cardsAll, dealerCard, 1);
                 cardsAll.splice(cardsAll.indexOf(dealerCard[3]), 1);
+                if(dealerCard[2].points === 11) {
+                    dealerCard[2].points = 1
+                }
                 document.querySelector('.dealer__card-4').src = dealerCard[3].img;
                 document.querySelector('.dealer__card-4').style.display = "inline-block";
                 dealerRoundScore += dealerCard[3].points;
                 fieldDealer.textContent = dealerRoundScore;
             // }, 500)
         }
-
+        if(dealerRoundScore <17 && playerRoundScore <=21) {
+            // setTimeout(() => {
+                randomCard(cardsAll, dealerCard, 1);
+                cardsAll.splice(cardsAll.indexOf(dealerCard[4]), 1);
+                if(dealerCard[2].points === 11) {
+                    dealerCard[2].points = 1
+                }
+                document.querySelector('.dealer__card-5').src = dealerCard[4].img;
+                document.querySelector('.dealer__card-5').style.display = "inline-block";
+                dealerRoundScore += dealerCard[4].points;
+                fieldDealer.textContent = dealerRoundScore;
+            // }, 500)
+        }
         if (playerRoundScore < dealerRoundScore && dealerRoundScore <= 21 || playerRoundScore > 21) {
             hit.classList.add('disabled');
             stand.classList.add('disabled');
             setTimeout(() => {
-                popupMessage.classList.add('popup__active');
-                popupRate.textContent = 'Вы проиграли!'
+                popupWinner.classList.add('popup__active');
+                titleStatus.textContent = "Вы проиграли!"
+                titleStatus.style.top = "55%"
+                winnerSpan.textContent = ""
                 losing.textContent++
             }, 500)
-        
-        } else if (playerRoundScore > dealerRoundScore || dealerRoundScore > 21) {
+        } else if (playerRoundScore > dealerRoundScore && playerRoundScore <=21 || dealerRoundScore >= 22) {
             hit.classList.add('disabled');
             stand.classList.add('disabled');
             setTimeout(() => {
-                
-
                 popupWinner.classList.add('popup__active');
-                winnerSpan.textContent = inputRate.value * 2;
-                moneyRate.textContent= +moneyRate.textContent + inputRate.value * 2;
+                titleStatus.textContent = "Победа!"
+                winnerSpan.textContent = `Вы выиграли ${inputRate.textContent.split('').slice(0,4).join('') * 2} USD`
+                moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
+                titleStatus.style.top = "50%"
                 victoties.textContent++
-                console.log(+inputRate.value);
-
             }, 500)
         } else if (playerRoundScore === dealerRoundScore){
             hit.classList.add('disabled');
             stand.classList.add('disabled');
             setTimeout(() => {
-                popupMessage.classList.add('popup__active');
-                popupRate.textContent = 'Ничья!'
+                popupWinner.classList.add('popup__active');
+                titleStatus.textContent = "Ничья!"
+                winnerSpan.textContent = ""
+                titleStatus.style.top = "55%"
+                moneyRate.textContent= +moneyRate.textContent + +inputRate.textContent;
                 draw.textContent++
             }, 500)
         }
 }
 
 function openPopup(popup) {
-    popup.classList.add('popup__active')
+    popup.classList.add('popup__active');
 }
 
 function closePopup (popup) {
-popup.classList.remove('popup__active')
+popup.classList.remove('popup__active');
 }
 
 rules.addEventListener('click', () => {
@@ -278,6 +347,8 @@ rules.addEventListener('click', () => {
 
 closeButton.addEventListener('click', () => {
     closePopup(popup)
+    inputRate.textContent = ""
+    newGame()
 })
 
 document.addEventListener('click', (e) => {
@@ -286,6 +357,7 @@ document.addEventListener('click', (e) => {
         closePopup(popupMessage)
         closePopup(popupWinner)
         hit.removeEventListener('click', addCard);
+        inputRate.textContent = ""
         newGame()
     }
 })
@@ -296,12 +368,23 @@ document.addEventListener('keydown', (e) => {
         closePopup(popupMessage)
         closePopup(popupWinner)
         hit.removeEventListener('click', addCard);
+        inputRate.textContent = ""
         newGame()
     }
 })
+
 attempt.forEach((item) => {
     item.addEventListener('click', ()=> {
-        inputRate.value = item.textContent
+        inputRate.textContent = item.textContent.split('').slice(0,4).join('');
+        moneyRate.textContent = +moneyRate.textContent - +item.textContent.split('').slice(0,4).join('')
+        console.log(item.textContent.split('').slice(0,4).join(''))
+        item.classList.add('color-red')
+        trigger();
+        attempt.forEach((button) => {
+            button.classList.add('disabled')
+        })
     })
 })
+
+
 

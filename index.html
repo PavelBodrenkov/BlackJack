@@ -13,9 +13,9 @@
             <div class="header__content">
                 <p class="header__subtitle"><a class="header__link" href="#">Главная</a></p>
                 <p class="header__subtitle">/</p>
-                <p class="header__subtitle"><a class="header__link" href="#">Игра"21"</a></p>
+                <p class="header__subtitle"><a class="header__link" href="#">Игра&laquo;21&raquo;</a></p>
             </div>
-            <h1 class="header__title">карточная игра "21"</h1>
+            <h1 class="header__title">карточная игра &laquo;21&raquo;</h1>
         </header>
         <main class="main">
             <div class="logo-bar container-main">
@@ -24,7 +24,7 @@
                 <!-- <img src='./images/needadollar.png' class="baks"/> -->
                 <div class="money">
                     <img src="./images/USD.png" class="usd">
-                    <div class="money-rate">0</div>
+                    <div class="money-rate">10000</div>
                 </div>
             </div>
             <div class="main__wrapper container-main">
@@ -63,6 +63,7 @@
                             <img class="card dealer__card-2" src="">
                             <img class="card dealer__card-3" src="">
                             <img class="card dealer__card-4" src="">
+                            <img class="card dealer__card-5" src="">
                         </div>
                         <div class="main__container_number computer"></div>
                     </div>
@@ -75,22 +76,22 @@
                 
             </div> 
             <div class="rate-container container-rate">
-                <span class="span-rate"></span>
-                <input class="input-rate" type="text">
-                <div class="attempt">500</div>
-                <div class="attempt">1000</div>
-                <div class="attempt">1500</div>
-                <div class="attempt">2000</div>
-                <div class="attempt">2500</div>
-                <div class="attempt">3000</div>
-                <button class="button-del-rate"></button>
+                <div class="input-rate"></div>
+                <!-- <div class=""> -->
+                    <div class="attempt">1000$</div>
+                    <div class="attempt">1500$</div>
+                    <div class="attempt">2000$</div>
+                    <div class="attempt">2500$</div>
+                    <div class="attempt">3000$</div>
+                <!-- </div> -->
+                <!-- <button class="button-del-rate"></button> -->
                 <button class="button-rate">Сделать ставку</button>
             </div>
         </main>
         <!-- popup правил игры -->
         <div class="popup">
             <div class="popup__container">
-                <h1 class="title-one">Игра "21"</h1>
+                <h1 class="title-one">Игра &laquo;21&raquo;</h1>
                 <h2 class="title-two">Постарайтесь угадать, когда сумма карт будет равна 21!</h2>
                 <h2 class="title-three">Как играть?</h2>
                 <ul class="popup__list">
@@ -119,7 +120,8 @@
         </div>
         <div class="popup__winner">
             <div class="img-winner">
-                <h2 class="title-winner">Вы выиграли <span class="winner-span"></span>&nbsp;USD</h2>
+                <h2 class="title__status"></h2>
+                <h2 class="title-winner"><span class="winner-span"></span></h2>
             </div>
         </div>
     </div>
