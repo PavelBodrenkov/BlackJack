@@ -138,7 +138,8 @@ function newGame () {
 
     if(+victoties.textContent + +losing.textContent + +draw.textContent == 6) {
         popupWinner.classList.add('popup__active');
-         titleStatus.textContent = "Зарегистрируйтесь или перезагрузите страницу!"
+         titleStatus.textContent = "Зарегистрируйтесь или перезагрузите страницу!";
+         winnerSpan.textContent = "";
          titleStatus.style.top = "55%";
          titleStatus.style.left = "50%";
     }
@@ -146,8 +147,8 @@ function newGame () {
 
     if (moneyRate.textContent == 0) {
         popupWinner.classList.add('popup__active');
-        titleStatus.textContent = "Пора пополнить бонусный счет!"
-        titleStatus.style.top = "55%"
+        titleStatus.textContent = "Пора пополнить бонусный счет!";
+        titleStatus.style.top = "55%";
     }
 
     playerRoundScore = 0;
@@ -283,7 +284,7 @@ function addCard () {
         fieldUser.textContent = playerRoundScore;
     }
     if (playerRoundScore >= 21) {
-        showCompareCard();
+            showCompareCard();
     }
     if(playerCard.length === 5) {
         hit.classList.add('disabled');
@@ -338,7 +339,7 @@ function showCompareCard () {
                 titleStatus.style.top = "55%"
                 winnerSpan.textContent = ""
                 losing.textContent++
-            }, 500)
+            }, 700)
         } else if (playerRoundScore > dealerRoundScore && playerRoundScore <=21 || dealerRoundScore >= 22) {
             hit.classList.add('disabled');
             stand.classList.add('disabled');
@@ -349,7 +350,7 @@ function showCompareCard () {
                 moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
                 titleStatus.style.top = "50%"
                 victoties.textContent++
-            }, 500)
+            }, 700)
         } else if (playerRoundScore === dealerRoundScore){
             hit.classList.add('disabled');
             stand.classList.add('disabled');
@@ -360,7 +361,7 @@ function showCompareCard () {
                 titleStatus.style.top = "55%"
                 moneyRate.textContent= +moneyRate.textContent + +inputRate.textContent;
                 draw.textContent++
-            }, 500)
+            }, 700)
         }
 }
 
