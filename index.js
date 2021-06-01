@@ -140,7 +140,7 @@ function newGame () {
         popupWinner.classList.add('popup__active');
          titleStatus.textContent = "Зарегистрируйтесь или перезагрузите страницу!"
          titleStatus.style.top = "55%";
-         titleStatus.style.left = "55%";
+         titleStatus.style.left = "50%";
     }
     console.log(+victoties.textContent + +losing.textContent + +draw.textContent)
 
@@ -217,7 +217,7 @@ function startGame () {
             titleStatus.style.top = "55%"
             winnerSpan.textContent = ""
             losing.textContent++
-        }, 4500)
+        }, 3500)
     }
 
     setTimeout(() => fieldUser.textContent = playerRoundScore, 1300)
@@ -225,26 +225,27 @@ function startGame () {
     
 
     if(playerCard[0].points == 11 && playerCard[1].points == 11) {
-        popupWinner.classList.add('popup__active');
-        titleStatus.textContent = "Победа!"
-        winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
-        moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
-        titleStatus.style.top = "50%"
-        victoties.textContent++
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Победа!"
+            winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
+            moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
+            titleStatus.style.top = "50%"
+            victoties.textContent++
+        }, 3500)
     } else if(dealerCard[0].points == 11 && dealerCard[1].points == 11) {
-        popupWinner.classList.add('popup__active');
-        titleStatus.textContent = "Вы проиграли!"
-        titleStatus.style.top = "55%"
-        winnerSpan.textContent = ""
-        losing.textContent++
-    } else if (playerRoundScore > 21) {
-        showCompareCard();
-    }
-    
-
-
-
-
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Вы проиграли!"
+            titleStatus.style.top = "55%"
+            winnerSpan.textContent = ""
+            losing.textContent++
+        }, 3500)
+        
+    } 
+    // else if (playerRoundScore > 21) {
+        // showCompareCard();
+    // }
 
     buttonRate.removeEventListener('click', startGame)  
 }
@@ -281,11 +282,12 @@ function addCard () {
         playerRoundScore += playerCard[4].points;
         fieldUser.textContent = playerRoundScore;
     }
-    if (playerRoundScore > 21) {
+    if (playerRoundScore >= 21) {
         showCompareCard();
     }
     if(playerCard.length === 5) {
         hit.classList.add('disabled');
+        showCompareCard();
     }
 }
 
