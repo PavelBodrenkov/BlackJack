@@ -295,76 +295,76 @@ function addCard () {
 }
 
 function showCompareCard () {
-        if(dealerRoundScore <17 && playerRoundScore <=21) {
+    if(dealerRoundScore <17 && playerRoundScore <=21) {
+        randomCard(cardsAll, dealerCard, 1);
+        cardsAll.splice(cardsAll.indexOf(dealerCard[2]), 1);
+        if(dealerCard[2].points === 11) {
+            dealerCard[2].points = 1
+        }
+        document.querySelector('.dealer__card-3').src = dealerCard[2].img;
+        document.querySelector('.dealer__card-3').style.display = "inline-block";
+        dealerRoundScore += dealerCard[2].points;
+        fieldDealer.textContent = dealerRoundScore;
+    }
+    if(dealerRoundScore <17 && playerRoundScore <=21) {
+        // setTimeout(() => {
             randomCard(cardsAll, dealerCard, 1);
-            cardsAll.splice(cardsAll.indexOf(dealerCard[2]), 1);
+            cardsAll.splice(cardsAll.indexOf(dealerCard[3]), 1);
             if(dealerCard[2].points === 11) {
                 dealerCard[2].points = 1
             }
-            document.querySelector('.dealer__card-3').src = dealerCard[2].img;
-            document.querySelector('.dealer__card-3').style.display = "inline-block";
-            dealerRoundScore += dealerCard[2].points;
+            document.querySelector('.dealer__card-4').src = dealerCard[3].img;
+            document.querySelector('.dealer__card-4').style.display = "inline-block";
+            dealerRoundScore += dealerCard[3].points;
             fieldDealer.textContent = dealerRoundScore;
-        }
-        if(dealerRoundScore <17 && playerRoundScore <=21) {
-            // setTimeout(() => {
-                randomCard(cardsAll, dealerCard, 1);
-                cardsAll.splice(cardsAll.indexOf(dealerCard[3]), 1);
-                if(dealerCard[2].points === 11) {
-                    dealerCard[2].points = 1
-                }
-                document.querySelector('.dealer__card-4').src = dealerCard[3].img;
-                document.querySelector('.dealer__card-4').style.display = "inline-block";
-                dealerRoundScore += dealerCard[3].points;
-                fieldDealer.textContent = dealerRoundScore;
-            // }, 500)
-        }
-        if(dealerRoundScore <17 && playerRoundScore <=21) {
-            // setTimeout(() => {
-                randomCard(cardsAll, dealerCard, 1);
-                cardsAll.splice(cardsAll.indexOf(dealerCard[4]), 1);
-                if(dealerCard[2].points === 11) {
-                    dealerCard[2].points = 1
-                }
-                document.querySelector('.dealer__card-5').src = dealerCard[4].img;
-                document.querySelector('.dealer__card-5').style.display = "inline-block";
-                dealerRoundScore += dealerCard[4].points;
-                fieldDealer.textContent = dealerRoundScore;
-            // }, 500)
-        }
-        if (playerRoundScore < dealerRoundScore && dealerRoundScore <= 21 || playerRoundScore > 21) {
-            hit.classList.add('disabled');
-            stand.classList.add('disabled');
-            setTimeout(() => {
-                popupWinner.classList.add('popup__active');
-                titleStatus.textContent = "Вы проиграли!"
-                titleStatus.style.top = "55%"
-                winnerSpan.textContent = ""
-                losing.textContent++
-            }, 1500)
-        } else if (playerRoundScore > dealerRoundScore && playerRoundScore <=21 || dealerRoundScore >= 22) {
-            hit.classList.add('disabled');
-            stand.classList.add('disabled');
-            setTimeout(() => {
-                popupWinner.classList.add('popup__active');
-                titleStatus.textContent = "Победа!"
-                winnerSpan.textContent = `Вы выиграли ${inputRate.textContent.split('').slice(0,4).join('') * 2} USD`
-                moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
-                titleStatus.style.top = "50%"
-                victoties.textContent++
-            }, 1500)
-        } else if (playerRoundScore === dealerRoundScore){
-            hit.classList.add('disabled');
-            stand.classList.add('disabled');
-            setTimeout(() => {
-                popupWinner.classList.add('popup__active');
-                titleStatus.textContent = "Ничья!"
-                winnerSpan.textContent = ""
-                titleStatus.style.top = "55%"
-                moneyRate.textContent= +moneyRate.textContent + +inputRate.textContent;
-                draw.textContent++
-            }, 1500)
-        }
+        // }, 500)
+    }
+    if(dealerRoundScore <17 && playerRoundScore <=21) {
+        // setTimeout(() => {
+            randomCard(cardsAll, dealerCard, 1);
+            cardsAll.splice(cardsAll.indexOf(dealerCard[4]), 1);
+            if(dealerCard[2].points === 11) {
+                dealerCard[2].points = 1
+            }
+            document.querySelector('.dealer__card-5').src = dealerCard[4].img;
+            document.querySelector('.dealer__card-5').style.display = "inline-block";
+            dealerRoundScore += dealerCard[4].points;
+            fieldDealer.textContent = dealerRoundScore;
+        // }, 500)
+    }
+    if (playerRoundScore < dealerRoundScore && dealerRoundScore <= 21 || playerRoundScore > 21) {
+        hit.classList.add('disabled');
+        stand.classList.add('disabled');
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Вы проиграли!"
+            titleStatus.style.top = "55%"
+            winnerSpan.textContent = ""
+            losing.textContent++
+        }, 1500)
+    } else if (playerRoundScore > dealerRoundScore && playerRoundScore <=21 || dealerRoundScore >= 22) {
+        hit.classList.add('disabled');
+        stand.classList.add('disabled');
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Победа!"
+            winnerSpan.textContent = `Вы выиграли ${inputRate.textContent.split('').slice(0,4).join('') * 2} USD`
+            moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
+            titleStatus.style.top = "50%"
+            victoties.textContent++
+        }, 1500)
+    } else if (playerRoundScore === dealerRoundScore){
+        hit.classList.add('disabled');
+        stand.classList.add('disabled');
+        setTimeout(() => {
+            popupWinner.classList.add('popup__active');
+            titleStatus.textContent = "Ничья!"
+            winnerSpan.textContent = ""
+            titleStatus.style.top = "55%"
+            moneyRate.textContent= +moneyRate.textContent + +inputRate.textContent;
+            draw.textContent++
+        }, 1500)
+    }
 }
 
 function openPopup(popup) {
@@ -419,6 +419,14 @@ attempt.forEach((item) => {
         })
     })
 })
+
+window.addEventListener("orientationchange", function() {
+    // Выводим числовое значение ориентации
+    if(window.orientation === 0) {
+        alert("Переверните экран в портетный режим");
+    }
+    
+}, false);
 
 
 
