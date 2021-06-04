@@ -94,7 +94,7 @@ function randomCard(cardsAll, player, itteration) {
     for(let i = 0; i<itteration; i++) {
         player.push(cardsAll[Math.floor(Math.random() * cardsAll.length)]);
     }   
-}
+};
 
 popupWinnerClose.addEventListener('click', () => {
     console.log('dfgfghg')
@@ -102,9 +102,9 @@ popupWinnerClose.addEventListener('click', () => {
     
     hit.removeEventListener('click', addCard);
     newGame()
-})
+});
 
-newGame()
+newGame();
 
 function trigger () {
     if(inputRate.textContent !== "") {
@@ -116,7 +116,7 @@ function trigger () {
     attempt.forEach((button) => {
         button.classList.remove('color')
     })
-}
+};
 
 function newGame () {
     inputRate.textContent = ""
@@ -170,7 +170,7 @@ function newGame () {
     document.querySelector('.dealer__card-3').style.display = "none";
     document.querySelector('.dealer__card-4').style.display = "none";
     document.querySelector('.dealer__card-5').style.display = "none";
-}
+};
 
 function startGame () {
     buttonRate.classList.add('disabled');
@@ -285,10 +285,12 @@ function addCard () {
     }
     if (playerRoundScore >= 21) {
             showCompareCard();
+   
     }
+
     if(playerCard.length === 5) {
-        hit.classList.add('disabled');
-        showCompareCard();
+            hit.classList.add('disabled');
+            showCompareCard();
     }
 }
 
@@ -339,7 +341,7 @@ function showCompareCard () {
                 titleStatus.style.top = "55%"
                 winnerSpan.textContent = ""
                 losing.textContent++
-            }, 700)
+            }, 1500)
         } else if (playerRoundScore > dealerRoundScore && playerRoundScore <=21 || dealerRoundScore >= 22) {
             hit.classList.add('disabled');
             stand.classList.add('disabled');
@@ -350,7 +352,7 @@ function showCompareCard () {
                 moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
                 titleStatus.style.top = "50%"
                 victoties.textContent++
-            }, 700)
+            }, 1500)
         } else if (playerRoundScore === dealerRoundScore){
             hit.classList.add('disabled');
             stand.classList.add('disabled');
@@ -361,7 +363,7 @@ function showCompareCard () {
                 titleStatus.style.top = "55%"
                 moneyRate.textContent= +moneyRate.textContent + +inputRate.textContent;
                 draw.textContent++
-            }, 700)
+            }, 1500)
         }
 }
 
