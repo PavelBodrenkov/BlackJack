@@ -422,7 +422,7 @@ attempt.forEach((item) => {
 
 window.addEventListener("orientationchange", function() {
     // Выводим числовое значение ориентации
-    if(window.orientation === 0) {
+    if(window.orientation !== 90) {
         alert("Переверните экран в портетный режим");
     }
     
