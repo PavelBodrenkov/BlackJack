@@ -11,7 +11,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     box-shadow: 0 -20px 100px 50px inset black;
-    
 }
 
 .header {
@@ -21,7 +20,6 @@ body {
     min-height: 165px;
     display: flex;
     align-items: flex-end;
-    
 }
 
 .header__content-logo {
@@ -41,7 +39,6 @@ body {
     margin:0;
     text-transform: uppercase;
     margin-right: 10px;
-   
 }
 
 .header__link {
@@ -703,7 +700,6 @@ cursor: pointer;
 .money {
     width:200px;
     height: 40px;
-    /* background: white; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -717,7 +713,6 @@ cursor: pointer;
 .money-rate {
     width:150px;
     height: 35px;
-    /* border: 1px solid red; */
     border-radius: 20px;
     color: white;
     display: flex;
@@ -776,13 +771,14 @@ cursor: pointer;
         max-width: 824px;
         max-height:411px;
     background-size: cover;
+    
   
     }
     .header {
         max-width: 1357px;
         margin: 0 auto;
         color:white;
-        min-height: 91px;
+        max-height: 91px;
         display: flex;
         
         
@@ -834,7 +830,7 @@ cursor: pointer;
 
     .field-one {
         width: 137px;
-    height: 71px;
+        height: 71px;
     }
 
     .field-two {
@@ -848,25 +844,65 @@ cursor: pointer;
 
     .main__kol {
         background: url(./images/cards/deck.png) center no-repeat;
-        width: 170px;
-        height: 176px;
+        width: 73px;
+        height: 76px;
         z-index: 4;
-        background-size: 102px;
-}
+        background-size: 63px;
+    }
     .main__wrapper {
         display: flex;
-        margin-top: 16px;
+        margin-top: 44px;
         justify-content: space-around;
         width: 100%;
     }
     .score {
-        width: 76px;
-        height: 37px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 25px;
+        width: 48px;
+        height: 27px;
+        font-size: 19px;
     }
 
+    .main__container {
+        right: 34px;
+    }
+
+    .main__container_number {
+        width: 40px;
+        height: 40px;
+    }
+    .switch-one {
+        margin-top: 20px;
+    }
+
+    .main__sewitch {
+        width: 80px;
+        height: 27px;
+    }
+
+    .switch-one {
+        margin-top: 14px;
+        margin-bottom: 11px;
+    }
+
+    .wrapper-card {
+      right: 155px;
+    }
+
+    .data-play {
+        left: 128px;
+    }
+    .data-play__general {
+        margin-bottom: 3px;
+    }
+    .win {
+        font-size: 8px;
+    }
+    .rate-container {
+        margin-top: 56px;
+        height: 70px;
+      
+    }
+    .container-rate {
+         width: calc(100% - 0px * 2);
+        margin: 50px auto 0 auto;
+    }
 } */
