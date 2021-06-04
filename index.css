@@ -384,7 +384,7 @@ cursor: pointer;
     height: 100%;
     top:0;
     left: 0;
-    background-color: rgba(143, 140, 140, 0.3);
+    background-color: rgb(2 2 2 / 30%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -449,6 +449,14 @@ cursor: pointer;
     list-style: none;
 }
 
+.popup__list li {
+    margin-bottom: 8px;
+}
+
+.popup__list li:last-of-type {
+    margin-bottom: 0;
+}
+
 .subtitle__one {
     margin: 0;
 }
@@ -462,6 +470,7 @@ cursor: pointer;
     font-size: 18px;
     align-self: center;
     color:rgb(4, 68, 121);
+    text-align: center;
 }
 
 .subtitle__three {
