@@ -420,13 +420,25 @@ attempt.forEach((item) => {
     })
 })
 
-window.addEventListener("orientationchange", function() {
-    // Выводим числовое значение ориентации
-    if(window.orientation !== 90) {
-        alert("Переверните экран в портетный режим");
-    }
+// window.addEventListener("orientationchange", function() {
+//     // Выводим числовое значение ориентации
+//     if(window.orientation !== 90) {
+//         alert("Переверните экран в портетный режим");
+//     }
     
-}, false);
+// }, false);
+
+// window.addEventListener("resize", function() {
+//     // Здесь получаем размеры экрана (inner/outerWidth, inner/outerHeight)
+    
+// }, false);
+
+
+  if (window.innerHeight > window.innerWidth) {
+    alert("Переверните экран в портетный режим");
+    } 
+  
+
 
 
 
