@@ -1,6 +1,6 @@
 body {
-    /* background: url('./images/sloybg.png'); */
-    max-height: 100vh;
+    background: url('./images/sloybg.png');
+    height: 100vh;
     display: flex;
     align-items: center;
     
@@ -995,7 +995,7 @@ cursor: pointer;
     .App__background {
         background: url('./images/full1.png') center no-repeat;
         max-width: 823px;
-        height: 100vh;
+        max-height: 100vh;
         background-size: 1200px;
         margin: 0 auto;
         box-shadow: 0 -20px 100px 50px inset black;
@@ -1217,7 +1217,6 @@ cursor: pointer;
 }
 @media screen and (max-width:812px){
     body {
-        
         overflow: hidden;
     }
     .App__background {
@@ -1268,13 +1267,6 @@ cursor: pointer;
         align-items: center;
         max-width: 900px;
     }
-    body {
-        background: none;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        /* overflow-y: hidden; */
-    }
     .attempt {
         width: 42px;
         height: 28px;
@@ -1315,19 +1307,19 @@ cursor: pointer;
 }
     .card-player {
         width: 61px;
-        top: 1.3rem;
-        left: 23.5em;
+        top: 0.3rem;
+        left: 18.5em;
     }
     .card-dealer {
         width: 61px;
-        top: -6.9rem;
-        left: 22.5rem;
+        top: -6.7rem;
+        left: 17.5em;
     }
 
     @keyframes playerCard1 {
         0% {
-            top: 1.3rem;
-            left: 23.5em;
+            top: 0.3rem;
+            left: 18.5em;
         }
         100% {
             top: 0.3rem;
@@ -1337,8 +1329,8 @@ cursor: pointer;
 
     @keyframes playerCard2 {
         0% {
-            top: 1.3rem;
-            left: 23.5em;
+            top: 0.3rem;
+            left: 18.5em;
         }
         100% {
             top: 0.3rem;
@@ -1348,8 +1340,8 @@ cursor: pointer;
 
     @keyframes playerCard3 {
         0% {
-            top: 1.3rem;
-            left: 23.5em;
+            top: 0.3rem;
+            left: 18.5em;
         }
         100% {
             top: 0.3rem;
@@ -1359,8 +1351,8 @@ cursor: pointer;
 
     @keyframes playerCard4 {
         0% {
-            top: 1.3rem;
-            left: 23.5em;
+            top: 0.3rem;
+            left: 18.5em;
         }
         100% {
             top: 0.3rem;
@@ -1370,8 +1362,8 @@ cursor: pointer;
 
     @keyframes playerCard5 {
         0% {
-            top: 1.3rem;
-            left: 23.5em;
+            top: 0.3rem;
+            left: 18.5em;
         }
         100% {
             top: 0.3rem;
@@ -1381,8 +1373,8 @@ cursor: pointer;
 
     @keyframes dealerCard1 {
         0% {
-            top: -6.9rem;
-            left: 22.5rem;
+            top: -6.7rem;
+            left: 17.5em;
         }
         100% {
             top: 0.3rem;
@@ -1392,8 +1384,8 @@ cursor: pointer;
 
     @keyframes dealerCard2 {
         0% {
-            top: -6.9rem;
-            left: 22.5rem;
+            top: -6.7rem;
+            left: 17.5em;
         }
         100% {
             top: 0.3rem;
@@ -1403,8 +1395,8 @@ cursor: pointer;
 
     @keyframes dealerCard3 {
         0% {
-            top: -6.9rem;
-            left: 22.5rem;
+            top: -6.7rem;
+            left: 17.5em;
         }
         100% {
             top: 0.3rem;
@@ -1413,8 +1405,8 @@ cursor: pointer;
     }
     @keyframes dealerCard4 {
         0% {
-            top: -6.9rem;
-            left: 22.5rem;
+            top: -6.7rem;
+            left: 17.5em;
         }
         100% {
             top: 0.3rem;
@@ -1423,8 +1415,8 @@ cursor: pointer;
     }
     @keyframes dealerCard5 {
         0% {
-            top: -6.9rem;
-            left: 22.5rem;
+            top: -6.7rem;
+            left: 17.5em;
         }
         100% {
             top: 0.3rem;
@@ -1448,5 +1440,219 @@ cursor: pointer;
     }
     .main__sewitch {
         font-size: 15px;
+    }
+}
+@media screen  and (max-width: 736px) {
+    .main__container_number {
+        margin-left: 13px;
+    }
+    .wrapper-card {
+        margin-left: 129px;
+        margin-right: 63px;
+    }
+    .data-play {
+        margin-right: 9px;
+        margin-left: 126px;
+    }
+    .card-player {
+        left: 16.5em;
+    }
+    @keyframes playerCard2 {
+        0% {
+            top: 0.3rem;
+            left: 16.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 1.5em;
+        }
+    }
+}
+
+@media screen  and (max-width: 667px) {
+    .button-rate {
+        font-size: 11px;
+    }
+    .attempt {
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen  and (max-width: 667px) {
+    .App__background {
+        background-size: 824px;
+    }
+    .field-one {
+        width: 129px;
+        height: 75px;
+    }
+    .field-two {
+        width: 129px;
+        height: 75px;
+    }
+    .main__wrapper {
+        height: 209px;
+    }
+    .main__kol {
+        background-size: 75px;
+        width: 75px;
+        height: 84px;
+        margin-top: 10px;
+    }
+    .main__sewitch {
+        width: 78px;
+    }
+    .money {
+        width: 111px;
+        height: 31px;
+    }
+    .money-rate {
+        font-size: 17px;
+        width: 59px;
+    }
+    .usd {
+        width: 50px;
+        height: 50px;
+    }
+    .data-play {
+        margin-right: 22px;
+        margin-left: 172px;
+    }
+    .field-one__dialer {
+        font-size: 24px;
+    }
+    .button-rate {
+        margin: 0 20px 0 17px;
+    }
+    .attempt {
+        width: 87px;
+    }
+    .input-rate {
+        margin-right: 6px;
+    }
+    .card-player {
+        width: 46px;
+        top: 0.3rem;
+        left: 13.2em;
+    }
+    .card-dealer {
+        width: 46px;
+        top: -5.7rem;
+        left: 13.5em;
+    }
+
+    @keyframes playerCard1 {
+        0% {
+            top: 0.3rem;
+            left: 13.2em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 0.3em;
+        }
+    }
+
+    @keyframes playerCard2 {
+        0% {
+            top: 0.3rem;
+            left: 13.2em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 1.2em;
+        }
+    }
+
+    @keyframes playerCard3 {
+        0% {
+            top: 0.3rem;
+            left: 13.2em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 2.4em;
+        }
+    }
+
+    @keyframes playerCard4 {
+        0% {
+            top: 0.3rem;
+            left: 13.2em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 3.6em;
+        }
+    }
+
+    @keyframes playerCard5 {
+        0% {
+            top: 0.3rem;
+            left: 13.2em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 4.8em;
+        }
+    }
+
+    @keyframes dealerCard1 {
+        0% {
+            top: -5.7rem;
+            left: 13.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 0.3em;
+        }
+    }
+
+    @keyframes dealerCard2 {
+        0% {
+            top: -5.7rem;
+            left: 13.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 1.2em;
+        }
+    }
+
+    @keyframes dealerCard3 {
+        0% {
+            top: -5.7rem;
+            left: 13.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 2.4em;
+        }
+    }
+    @keyframes dealerCard4 {
+        0% {
+            top: -5.7rem;
+            left: 13.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 3.6em;
+        }
+    }
+    @keyframes dealerCard5 {
+        0% {
+            top: -5.7rem;
+            left: 13.5em;
+        }
+        100% {
+            top: 0.3rem;
+            left: 4.8em;
+        }
+    }
+    .main__sewitch {
+        font-size: 13px;
+        height: 24px;
+        width: 75px;
     }
 }
