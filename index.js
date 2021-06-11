@@ -141,13 +141,18 @@ function newGame () {
         popupWinner.classList.add('popup__active');
          titleStatus.textContent = "Регистрируйся и получи приветственный пакет до €1500 + 150 фриспинов";
          titleStatus.style.fontSize = "22px";
+         if (screen.width <= 812) {
+            titleStatus.style.fontSize = "9px";
+        }
          winnerSpan.textContent = "";
          titleStatus.style.top = "47%";
          titleStatus.style.left = "50%";
          buttonRegister.style.display = "flex";
     }
+
+   
     
-    if (moneyRate.textContent == 0) {
+    if (moneyRate.textContent == 0 || moneyRate.textContent < 1000) {
         popupWinner.classList.add('popup__active');
         titleStatus.textContent = "Пора пополнить бонусный счет!";
         titleStatus.style.top = "55%";

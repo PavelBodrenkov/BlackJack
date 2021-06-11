@@ -1053,6 +1053,7 @@ cursor: pointer;
         width: 54px;
         height: 27px;
     }
+    
     .main__sewitch {
         width: 120px;
         height: 29px;
@@ -1227,7 +1228,7 @@ cursor: pointer;
         align-self: flex-end;
     }
     .header__title {
-        margin: 0;
+        margin: 0 0 0 26px;
         text-transform: uppercase;
         display: flex;
         align-items: center;
@@ -1250,6 +1251,9 @@ cursor: pointer;
     .main__container_number {
         width: 46px;
         height: 46px;
+    }
+    .title__status {
+        font-size: 20px;
     }
     .data-play__general {
         margin-bottom: 4px;
@@ -1302,9 +1306,14 @@ cursor: pointer;
         margin-right: 81px;
     }
     .data-play {
-    margin-right: -19px;
-    margin-left: 141px;
-}
+        margin-right: -19px;
+        margin-left: 141px;
+    }
+    .button-register {
+        width: 125px;
+        height: 36px;
+        font-size: 14px;
+    }
     .card-player {
         width: 61px;
         top: 0.3rem;
@@ -1450,6 +1459,9 @@ cursor: pointer;
         margin-left: 129px;
         margin-right: 63px;
     }
+    .title__status {
+        font-size: 18px;
+    }
     .data-play {
         margin-right: 9px;
         margin-left: 126px;
@@ -1466,17 +1478,6 @@ cursor: pointer;
             top: 0.3rem;
             left: 1.5em;
         }
-    }
-}
-
-@media screen  and (max-width: 667px) {
-    .button-rate {
-        font-size: 11px;
-    }
-    .attempt {
-        font-size: 12px;
-        display: flex;
-        align-items: center;
     }
 }
 
@@ -1512,6 +1513,12 @@ cursor: pointer;
         font-size: 17px;
         width: 59px;
     }
+    .title__status {
+        font-size: 28px;
+    }
+    .title-winner {
+        font-size: 23px;
+    }
     .usd {
         width: 50px;
         height: 50px;
@@ -1525,12 +1532,26 @@ cursor: pointer;
     }
     .button-rate {
         margin: 0 20px 0 17px;
+        font-size: 11px;
     }
     .attempt {
         width: 87px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
     }
     .input-rate {
         margin-right: 6px;
+        font-size: 21px;
+    }
+    .main__container_number {
+        font-size: 20px;
+    }
+    .button-register {
+        width: 114px;
+        height: 32px;
+        font-size: 12px;
+        margin-top: 5px;
     }
     .card-player {
         width: 46px;
@@ -1542,7 +1563,6 @@ cursor: pointer;
         top: -5.7rem;
         left: 13.5em;
     }
-
     @keyframes playerCard1 {
         0% {
             top: 0.3rem;
@@ -1553,7 +1573,6 @@ cursor: pointer;
             left: 0.3em;
         }
     }
-
     @keyframes playerCard2 {
         0% {
             top: 0.3rem;
@@ -1564,7 +1583,6 @@ cursor: pointer;
             left: 1.2em;
         }
     }
-
     @keyframes playerCard3 {
         0% {
             top: 0.3rem;
@@ -1575,7 +1593,6 @@ cursor: pointer;
             left: 2.4em;
         }
     }
-
     @keyframes playerCard4 {
         0% {
             top: 0.3rem;
@@ -1586,7 +1603,6 @@ cursor: pointer;
             left: 3.6em;
         }
     }
-
     @keyframes playerCard5 {
         0% {
             top: 0.3rem;
@@ -1597,7 +1613,6 @@ cursor: pointer;
             left: 4.8em;
         }
     }
-
     @keyframes dealerCard1 {
         0% {
             top: -5.7rem;
@@ -1608,7 +1623,6 @@ cursor: pointer;
             left: 0.3em;
         }
     }
-
     @keyframes dealerCard2 {
         0% {
             top: -5.7rem;
@@ -1619,7 +1633,6 @@ cursor: pointer;
             left: 1.2em;
         }
     }
-
     @keyframes dealerCard3 {
         0% {
             top: -5.7rem;
