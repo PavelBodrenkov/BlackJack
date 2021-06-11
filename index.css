@@ -995,7 +995,7 @@ cursor: pointer;
     .App__background {
         background: url('./images/full1.png') center no-repeat;
         max-width: 823px;
-        max-height: 100vh;
+        height: 100vh;
         background-size: 1200px;
         margin: 0 auto;
         box-shadow: 0 -20px 100px 50px inset black;
@@ -1076,7 +1076,8 @@ cursor: pointer;
     }
     .rate-container {
         max-width: 724px;
-        margin: 0px auto 0 auto;
+        margin: 16px auto 0 auto;
+        height: 44px;
     }
     .input-rate {
         margin-right: 23px;
@@ -1216,10 +1217,12 @@ cursor: pointer;
 }
 @media screen and (max-width:812px){
     body {
+        
         overflow: hidden;
     }
     .App__background {
         background-size: 987px;
+        
     }
     .header__content-logo {
         align-self: flex-end;
