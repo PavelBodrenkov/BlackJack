@@ -24,6 +24,7 @@ const attempt = document.querySelectorAll('.attempt');
 const popupAll = document.querySelector('.popup__all');
 const rateContainer = document.querySelector('.rate-container');
 const titleStatus = document.querySelector('.title__status');
+const buttonRegister = document.querySelector('.button-register');
 
 let cardsAll = [
     {img: './images/cards2/2(1).png', points: 2},
@@ -79,6 +80,8 @@ let cardsAll = [
     {img: './images/cards2/King(3).png', points: 4},
     {img: './images/cards2/King(4).png', points: 4}
 ]
+
+let newCardsAll = []
     
 let playerCard = [];
 let dealerCard = [];
@@ -97,9 +100,7 @@ function randomCard(cardsAll, player, itteration) {
 };
 
 popupWinnerClose.addEventListener('click', () => {
-    console.log('dfgfghg')
     popupMessage.classList.remove('popup__active');
-    
     hit.removeEventListener('click', addCard);
     newGame()
 });
@@ -138,17 +139,19 @@ function newGame () {
 
     if(+victoties.textContent + +losing.textContent + +draw.textContent == 6) {
         popupWinner.classList.add('popup__active');
-         titleStatus.textContent = "Зарегистрируйтесь или перезагрузите страницу!";
+         titleStatus.textContent = "Регистрируйся и получи приветственный пакет до €1500 + 150 фриспинов";
+         titleStatus.style.fontSize = "22px";
          winnerSpan.textContent = "";
-         titleStatus.style.top = "55%";
+         titleStatus.style.top = "47%";
          titleStatus.style.left = "50%";
+         buttonRegister.style.display = "flex";
     }
-    console.log(+victoties.textContent + +losing.textContent + +draw.textContent)
-
+    
     if (moneyRate.textContent == 0) {
         popupWinner.classList.add('popup__active');
         titleStatus.textContent = "Пора пополнить бонусный счет!";
         titleStatus.style.top = "55%";
+        buttonRegister.style.display = "none";
     }
 
     playerRoundScore = 0;
@@ -159,7 +162,7 @@ function newGame () {
     stand.classList.add('disabled');
     buttonRate.addEventListener('click', startGame)
     hit.addEventListener('click', addCard);
-    stand.addEventListener('click', showCompareCard);
+    
     document.querySelector('.player__card-1').style.display = "none";
     document.querySelector('.player__card-2').style.display = "none";
     document.querySelector('.player__card-3').style.display = "none";
@@ -170,6 +173,10 @@ function newGame () {
     document.querySelector('.dealer__card-3').style.display = "none";
     document.querySelector('.dealer__card-4').style.display = "none";
     document.querySelector('.dealer__card-5').style.display = "none";
+
+    if(newCardsAll.length == 0) {
+        newCardsAll = [...cardsAll]
+    }
 };
 
 function startGame () {
@@ -180,12 +187,12 @@ function startGame () {
     dealerRoundScore = 0;
     hit.classList.remove('disabled');
     stand.classList.remove('disabled');
-    randomCard(cardsAll, playerCard, 2);
-    randomCard(cardsAll, dealerCard, 2);
-    cardsAll.splice(cardsAll.indexOf(playerCard[0]), 1);
-    cardsAll.splice(cardsAll.indexOf(playerCard[1]), 1);
-    cardsAll.splice(cardsAll.indexOf(dealerCard[0]), 1);
-    cardsAll.splice(cardsAll.indexOf(dealerCard[1]), 1);
+    randomCard(newCardsAll, playerCard, 2);
+    randomCard(newCardsAll, dealerCard, 2);
+    newCardsAll.splice(newCardsAll.indexOf(playerCard[0]), 1);
+    newCardsAll.splice(newCardsAll.indexOf(playerCard[1]), 1);
+    newCardsAll.splice(newCardsAll.indexOf(dealerCard[0]), 1);
+    newCardsAll.splice(newCardsAll.indexOf(dealerCard[1]), 1);
     document.querySelector('.player__card-1').style.display = "inline-block";
     setTimeout(() => document.querySelector('.player__card-2').style.display = "inline-block", 500);
     setTimeout(() => document.querySelector('.dealer__card-1').style.display = "inline-block", 1200);
@@ -202,6 +209,7 @@ function startGame () {
         stand.classList.add('disabled');
             setTimeout(() => {
                 popupWinner.classList.add('popup__active');
+                buttonRegister.style.display = "none";
                 titleStatus.textContent = "Победа!"
                 winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
                 moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
@@ -214,6 +222,7 @@ function startGame () {
         stand.classList.add('disabled');
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Вы проиграли!"
             titleStatus.style.top = "55%"
             winnerSpan.textContent = ""
@@ -228,6 +237,7 @@ function startGame () {
     if(playerCard[0].points == 11 && playerCard[1].points == 11) {
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Победа!"
             winnerSpan.textContent = `Вы выиграли ${inputRate.textContent * 2} USD`
             moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
@@ -237,6 +247,7 @@ function startGame () {
     } else if(dealerCard[0].points == 11 && dealerCard[1].points == 11) {
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Вы проиграли!"
             titleStatus.style.top = "55%"
             winnerSpan.textContent = ""
@@ -248,13 +259,16 @@ function startGame () {
         // showCompareCard();
     // }
 
+    if(newCardsAll.length == 0) {
+        newCardsAll = [...cardsAll]
+    }
     buttonRate.removeEventListener('click', startGame)  
 }
 
 function addCard () {
     if(playerCard.length === 2){
-        randomCard(cardsAll, playerCard, 1);
-        cardsAll.splice(cardsAll.indexOf(playerCard[2]), 1);
+        randomCard(newCardsAll, playerCard, 1);
+        newCardsAll.splice(newCardsAll.indexOf(playerCard[2]), 1);
         if(playerCard[2].points === 11) {
             playerCard[2].points = 1
         }
@@ -263,8 +277,8 @@ function addCard () {
         playerRoundScore += playerCard[2].points;
         fieldUser.textContent = playerRoundScore;
     } else if (playerCard.length === 3) {
-        randomCard(cardsAll, playerCard, 1);
-        cardsAll.splice(cardsAll.indexOf(playerCard[3]), 1);
+        randomCard(newCardsAll, playerCard, 1);
+        newCardsAll.splice(newCardsAll.indexOf(playerCard[3]), 1);
         if(playerCard[3].points === 11) {
             playerCard[3].points = 1
         }
@@ -273,8 +287,8 @@ function addCard () {
         playerRoundScore += playerCard[3].points;
         fieldUser.textContent = playerRoundScore;
     }else if (playerCard.length === 4) {
-        randomCard(cardsAll, playerCard, 1);
-        cardsAll.splice(cardsAll.indexOf(playerCard[4]), 1);
+        randomCard(newCardsAll, playerCard, 1);
+        newCardsAll.splice(newCardsAll.indexOf(playerCard[4]), 1);
         if(playerCard[4].points === 11) {
             playerCard[4].points = 1
         }
@@ -285,19 +299,22 @@ function addCard () {
     }
     if (playerRoundScore >= 21) {
             showCompareCard();
-   
     }
 
     if(playerCard.length === 5) {
             hit.classList.add('disabled');
             showCompareCard();
     }
+
+    if(newCardsAll.length == 0) {
+        newCardsAll = [...cardsAll]
+    }
 }
 
 function showCompareCard () {
     if(dealerRoundScore <17 && playerRoundScore <=21) {
-        randomCard(cardsAll, dealerCard, 1);
-        cardsAll.splice(cardsAll.indexOf(dealerCard[2]), 1);
+        randomCard(newCardsAll, dealerCard, 1);
+        newCardsAll.splice(newCardsAll.indexOf(dealerCard[2]), 1);
         if(dealerCard[2].points === 11) {
             dealerCard[2].points = 1
         }
@@ -308,8 +325,8 @@ function showCompareCard () {
     }
     if(dealerRoundScore <17 && playerRoundScore <=21) {
         // setTimeout(() => {
-            randomCard(cardsAll, dealerCard, 1);
-            cardsAll.splice(cardsAll.indexOf(dealerCard[3]), 1);
+            randomCard(newCardsAll, dealerCard, 1);
+            newCardsAll.splice(newCardsAll.indexOf(dealerCard[3]), 1);
             if(dealerCard[2].points === 11) {
                 dealerCard[2].points = 1
             }
@@ -321,8 +338,8 @@ function showCompareCard () {
     }
     if(dealerRoundScore <17 && playerRoundScore <=21) {
         // setTimeout(() => {
-            randomCard(cardsAll, dealerCard, 1);
-            cardsAll.splice(cardsAll.indexOf(dealerCard[4]), 1);
+            randomCard(newCardsAll, dealerCard, 1);
+            newCardsAll.splice(newCardsAll.indexOf(dealerCard[4]), 1);
             if(dealerCard[2].points === 11) {
                 dealerCard[2].points = 1
             }
@@ -337,6 +354,7 @@ function showCompareCard () {
         stand.classList.add('disabled');
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Вы проиграли!"
             titleStatus.style.top = "55%"
             winnerSpan.textContent = ""
@@ -347,6 +365,7 @@ function showCompareCard () {
         stand.classList.add('disabled');
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Победа!"
             winnerSpan.textContent = `Вы выиграли ${inputRate.textContent.split('').slice(0,4).join('') * 2} USD`
             moneyRate.textContent= +moneyRate.textContent + inputRate.textContent * 2;
@@ -358,6 +377,7 @@ function showCompareCard () {
         stand.classList.add('disabled');
         setTimeout(() => {
             popupWinner.classList.add('popup__active');
+            buttonRegister.style.display = "none";
             titleStatus.textContent = "Ничья!"
             winnerSpan.textContent = ""
             titleStatus.style.top = "55%"
@@ -396,6 +416,8 @@ document.addEventListener('click', (e) => {
     }
 })
 
+stand.addEventListener('click', showCompareCard);
+
 document.addEventListener('keydown', (e) => {
     if(e.key = '27') {
         closePopup(popup)
@@ -411,7 +433,6 @@ attempt.forEach((item) => {
     item.addEventListener('click', ()=> {
         inputRate.textContent = item.textContent.split('').slice(0,4).join('');
         moneyRate.textContent = +moneyRate.textContent - +item.textContent.split('').slice(0,4).join('')
-        console.log(item.textContent.split('').slice(0,4).join(''))
         item.classList.add('color-red')
         trigger();
         attempt.forEach((button) => {
@@ -433,11 +454,9 @@ attempt.forEach((item) => {
     
 // }, false);
 
-
   if (window.innerHeight > window.innerWidth) {
     alert("Переверните экран в портетный режим");
     } 
-  
 
 
 
