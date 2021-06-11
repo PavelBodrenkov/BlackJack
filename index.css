@@ -3,7 +3,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    
 }
 
 .App {
@@ -1214,6 +1214,9 @@ cursor: pointer;
 
 }
 @media screen and (max-width:812px){
+    body {
+        overflow: hidden;
+    }
     .App__background {
         background-size: 987px;
     }
