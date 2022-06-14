@@ -1,3 +1,4 @@
 # BlackJack-JS
 
-![Иллюстрация к проекту](![image](https://user-images.githubusercontent.com/70709823/173616568-847d7067-2347-404b-a86d-ec66ab52a1e0.png))
+![image](https://user-images.githubusercontent.com/70709823/173616967-c764329a-aec1-48cf-b006-187c9e3a8641.png)
+
