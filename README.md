@@ -1,5 +1,6 @@
 # BlackJack-JS
 
+## Браузерная игра в "21" JS
 ### GH-Pages https://pavelbodrenkov.github.io/BlackJack-JS/
 
 ### Как использовать
